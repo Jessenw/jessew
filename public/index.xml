@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jesse W</title>
+    <link>https://jessew.co/</link>
+    <description>Recent content on Jesse W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Oct 2023 20:31:15 +1300</lastBuildDate><atom:link href="https://jessew.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Correct Way to Align UILabel on iOS</title>
+      <link>https://jessew.co/posts/the-correct-way-to-align-uilabel-on-ios/</link>
+      <pubDate>Wed, 11 Oct 2023 20:31:15 +1300</pubDate>
+      
+      <guid>https://jessew.co/posts/the-correct-way-to-align-uilabel-on-ios/</guid>
+      <description>This post focuses on center aligning UILabels by setting their frame and may not be useful for other options such as constraint-based layouts
+In mobile apps, we commonly implement user interfaces where text needs to be center-aligned to another view, such as an image, label or shape. You may have used a naive solution similar to the code below, but something feels off. Let&amp;rsquo;s investigate this problem and see how it can be fixed.</description>
+    </item>
+    
+  </channel>
+</rss>
