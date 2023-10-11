@@ -1,5 +1,5 @@
 +++
-title = 'The Correct Way to Align UILabel on iOS'
+title = 'Correctly aligning UILabels on iOS'
 date = 2023-10-11T20:31:15+13:00
 draft = false
 +++
@@ -16,13 +16,19 @@ labelView.origin.y = imageView.frame.minY + (imageView.frame.height - labelView.
 
 ## The problem
 
-If we inspect a UILabel using the View Hierarchy Debugger, we can see that the label's bounding box's height extends well past the height of the text itself. This is because the bounding box's height is determined by the font's characters with the greatest **ascender** and **descender** values, regardless of whether those characters are used.
+![](images/label-align-1.png)
+
+If we inspect a UILabel using the View Hierarchy Debugger, we can see that the label's bounding box's height extends well past the height of the text itself. This is because the bounding box's height is determined by the font's character with the greatest **ascender** and **descender** values, regardless of whether that character is used.
 
 We can demonstrate this by drawing lines whose origin is determined by the font's ascender (red) and descender (green) values.
+
+![](images/label-align-4.png)
 
 But, what is an **ascender** and **descender**? Let's take a look at a font's anatomy next.
 
 ## Anatomy of a font
+
+![](images/anatomy-of-a-typeface.jpeg)
 
 *Original image sourced from [here](https://m2.material.io/design/typography/understanding-typography.html#type-properties)*
 
@@ -78,7 +84,11 @@ extension CGRect {
 
 `font.lineHeight + font.descender - font.xHeight`
 
-2 - Next, we can perform the center align function from the naive implementation. But this time, we will use the font's `xHeight` rather than the label's height
+![](images/label-align-3.png)
+
+2 - Next, we can perform the center align function from the naive implementation. But this time, we will use the font's `xHeight` rather than the label's height.
+
+![](images/label-align-2.png)
 
 We can then use this function like so...
 
@@ -93,5 +103,7 @@ labelView.frame.centerAlignY(
 And that's it! A simple 2-step function that correctly aligns a label's `xHeight` to another view. It's a subtle difference for sure, but potentially worth the addition of a simple function.
 
 Finally, a quick comparison between the two solutions. The top is the naive solution and the bottom uses the font's xHeight for alignment.
+
+![](images/final-comparison.png)
 
 You can access the repository for the demo project [here](https://github.com/Jessenw/center-align-label)
